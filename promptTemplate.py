@@ -1,4 +1,3 @@
-
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
@@ -13,17 +12,21 @@ api_key = os.getenv("OPENAI_API_KEY")
 # Initialize the chat model
 chat = ChatOpenAI(openai_api_key=api_key)
 
-# Define a prompt template
-template = PromptTemplate(
-    input_variables=["topic"],
-    template="Can you provide a brief explanation about {topic}?"
+# Define a prompt template for translation
+translation_prompt = PromptTemplate(
+    input_variables=["text", "language"],
+    template="Translate the following English text to {language}: \"{text}\""
 )
 
-# Format the prompt with a specific topic
-formatted_prompt = template.format(topic="Machine Learning")
+# Example usage
+english_text = "Hello, how are you?"
+target_language = "Spanish"
+
+# Format the prompt with the given text and language
+formatted_prompt = translation_prompt.format(text=english_text, language=target_language)
 
 # Get AI response
 response = chat.predict(formatted_prompt)
 
-# Print the response
+# Print the translated text
 print(response)
