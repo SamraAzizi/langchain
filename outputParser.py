@@ -33,3 +33,21 @@ prompt_template = PromptTemplate(
         "{format_instructions}"
 
 print(parsed_output)
+    ),
+    partial_variables={"format_instructions": output_parser.get_format_instructions()}
+)
+
+# Example input
+math_problem = "Find the derivative of x^2 + 3x + 5"
+show_steps = True  # Set to False if you only want the final answer
+
+# Format the prompt based on user choice
+formatted_prompt = prompt_template.format(problem=math_problem, show_steps=show_steps)
+
+# Get AI response
+response = chat.predict(formatted_prompt)
+
+# Parse the structured output
+parsed_output = output_parser.parse(response)
+
+# Print the output
