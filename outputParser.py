@@ -8,8 +8,6 @@ import os
 load_dotenv()
 
 # Get the OpenAI API key
-
-
 api_key = os.getenv("OPENAI_API_KEY")
 
 # Initialize the chat model
@@ -31,8 +29,6 @@ prompt_template = PromptTemplate(
         "Solve the following math problem: {problem}\n"
         "{% if show_steps %} Show the solution with steps.{% else %} Show only the final answer.{% endif %}\n"
         "{format_instructions}"
-
-print(parsed_output)
     ),
     partial_variables={"format_instructions": output_parser.get_format_instructions()}
 )
@@ -51,3 +47,4 @@ response = chat.predict(formatted_prompt)
 parsed_output = output_parser.parse(response)
 
 # Print the output
+print(parsed_output)
