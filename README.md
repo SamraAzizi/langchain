@@ -21,8 +21,8 @@ OPENAI_API_KEY=your-api-key-here
 
 # Project Structure
 
-📁 simpleExample.py → Basic usage of LangChain's Chat Model
-📁 multiMessages.py → Handling multiple messages in a conversation
-📁 promptTemplate.py → Using a prompt template for language translation
-📁 outputParser.py → Solving math problems with optional step-by-step solutions
-📁 chain.py → Creating a simple LangChain pipeline
+- 📁 simpleExample.py → Basic usage of LangChain's Chat Model
+- 📁 multiMessages.py → Handling multiple messages in a conversation
+- 📁 promptTemplate.py → Using a prompt template for language translation
+- 📁 outputParser.py → Solving math problems with optional step-by-step solutions
+- 📁 chain.py → Creating a simple LangChain pipeline
